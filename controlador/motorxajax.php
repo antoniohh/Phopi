@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (C) 2016 Antonio Horrillo Horrillo
  *
@@ -35,18 +36,18 @@ $xajax = new xajax();
  * Registramos las funciones que vamos a llamar desde JavaScript o directamente
  * desde el codigo PHP.
  */
-$xajax->register(XAJAX_FUNCTION,"azulon");
-$xajax->register(XAJAX_FUNCTION,"azuloff");
-$xajax->register(XAJAX_FUNCTION,"verdeon");
-$xajax->register(XAJAX_FUNCTION,"verdeoff");
-$xajax->register(XAJAX_FUNCTION,"rojoon");
-$xajax->register(XAJAX_FUNCTION,"rojooff");
-$xajax->register(XAJAX_FUNCTION,"amarilloon");
-$xajax->register(XAJAX_FUNCTION,"amarillooff");
-$xajax->register(XAJAX_FUNCTION,"controlazul");
-$xajax->register(XAJAX_FUNCTION,"controlverde");
-$xajax->register(XAJAX_FUNCTION,"controlrojo");
-$xajax->register(XAJAX_FUNCTION,"controlamarillo");
+$xajax->register(XAJAX_FUNCTION, "azulon");
+$xajax->register(XAJAX_FUNCTION, "azuloff");
+$xajax->register(XAJAX_FUNCTION, "verdeon");
+$xajax->register(XAJAX_FUNCTION, "verdeoff");
+$xajax->register(XAJAX_FUNCTION, "rojoon");
+$xajax->register(XAJAX_FUNCTION, "rojooff");
+$xajax->register(XAJAX_FUNCTION, "amarilloon");
+$xajax->register(XAJAX_FUNCTION, "amarillooff");
+$xajax->register(XAJAX_FUNCTION, "controlazul");
+$xajax->register(XAJAX_FUNCTION, "controlverde");
+$xajax->register(XAJAX_FUNCTION, "controlrojo");
+$xajax->register(XAJAX_FUNCTION, "controlamarillo");
 /**
  * El método processRequest procesa las peticiones que llegan a la página.
  * Debe ser llamado antes del código HTML
@@ -57,105 +58,76 @@ $xajax->processRequest();
 // Inicio Control de Estado
 ////////////////////////////////////////////////////////////////////////////////
 
-function controlazul() {   
+function controlazul() {
     $respuesta = new xajaxResponse();
     $estado22 = shell_exec("gpio read 22");
-          
-    if (!isset($estado22)) {        
+    if (!isset($estado22)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 22.");
         $respuesta->assign("btnazulon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-danger");
-    }
-    
-    else {
-        
+    } else {
         if ($estado22 == 1) {
             $respuesta->assign("btnazulon", "className", "btn btn-lg btn-success");
-            $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-success");           
-        }
-        
-        else if ($estado22 == 0) {
+            $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-success");
+        } else if ($estado22 == 0) {
             $respuesta->assign("btnazulon", "className", "btn btn-lg btn-primary");
             $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-primary");
         }
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
-function controlverde() {   
+function controlverde() {
     $respuesta = new xajaxResponse();
     $estado23 = shell_exec("gpio read 23");
-  
-          
-    if (!isset($estado23)) {        
+    if (!isset($estado23)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 23.");
         $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-danger");
-    }
-    
-    else {
-        
+    } else {
         if ($estado23 == 1) {
             $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-success");
-            $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-success");           
-        }
-        
-        else if ($estado23 == 0) {
+            $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-success");
+        } else if ($estado23 == 0) {
             $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-primary");
             $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-primary");
         }
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
-function controlrojo() {   
+function controlrojo() {
     $respuesta = new xajaxResponse();
-    $estado24 = shell_exec("gpio read 24");  
-          
-    if (!isset($estado24)) {        
+    $estado24 = shell_exec("gpio read 24");
+    if (!isset($estado24)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 24.");
         $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-danger");
-    }
-    
-    else {
-        
+    } else {
         if ($estado24 == 1) {
             $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-success");
-            $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-success");           
-        }
-        
-        else if ($estado24 == 0) {
+            $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-success");
+        } else if ($estado24 == 0) {
             $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-primary");
             $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-primary");
         }
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
-function controlamarillo() {   
+function controlamarillo() {
     $respuesta = new xajaxResponse();
-    $estado25 = shell_exec("gpio read 25");   
-          
-    if (!isset($estado25)) {        
+    $estado25 = shell_exec("gpio read 25");
+    if (!isset($estado25)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 25.");
         $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-danger");
-    }
-    
-    else {
-        
+    } else {
         if ($estado25 == 1) {
             $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-success");
-            $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-success");           
-        }
-        
-        else if ($estado25 == 0) {
+            $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-success");
+        } else if ($estado25 == 0) {
             $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-primary");
             $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-primary");
         }
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -166,148 +138,116 @@ function controlamarillo() {
 // Inicio Control de Leds
 ////////////////////////////////////////////////////////////////////////////////
 
-function azulon() {   
+function azulon() {
     $respuesta = new xajaxResponse();
     $mode22 = shell_exec("gpio mode 22 out");
-   
-    if (isset($mode22)) {        
+    if (isset($mode22)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 22.");
         $respuesta->assign("btnazulon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $on = shell_exec("gpio write 22 1");
         $respuesta->assign("btnazulon", "className", "btn btn-lg btn-success");
-        $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-success");        
-    }
-    return $respuesta;  
+        $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-success");
+    } return $respuesta;
 }
 
-function azuloff() {   
+function azuloff() {
     $respuesta = new xajaxResponse();
     $mode22 = shell_exec("gpio mode 22 out");
-   
-    if (isset($mode22)) {        
+    if (isset($mode22)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 22.");
         $respuesta->assign("btnazulon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $off = shell_exec("gpio write 22 0");
         $respuesta->assign("btnazulon", "className", "btn btn-lg btn-primary");
         $respuesta->assign("btnazuloff", "className", "btn btn-lg btn-primary");
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
-function verdeon() {   
+function verdeon() {
     $respuesta = new xajaxResponse();
     $mode23 = shell_exec("gpio mode 23 out");
-   
-    if (isset($mode23)) {        
+    if (isset($mode23)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 23.");
         $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $on = shell_exec("gpio write 23 1");
         $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-success");
-        $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-success");        
-    }
-    return $respuesta;  
+        $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-success");
+    } return $respuesta;
 }
 
-function verdeoff() {   
+function verdeoff() {
     $respuesta = new xajaxResponse();
     $mode23 = shell_exec("gpio mode 23 out");
-   
-    if (isset($mode23)) {        
+    if (isset($mode23)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 23.");
         $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $off = shell_exec("gpio write 23 0");
         $respuesta->assign("btnverdeon", "className", "btn btn-lg btn-primary");
         $respuesta->assign("btnverdeoff", "className", "btn btn-lg btn-primary");
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
-function rojoon() {   
+function rojoon() {
     $respuesta = new xajaxResponse();
     $mode24 = shell_exec("gpio mode 24 out");
-   
-    if (isset($mode24)) {        
+    if (isset($mode24)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 24.");
         $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $on = shell_exec("gpio write 24 1");
         $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-success");
-        $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-success");        
-    }
-    return $respuesta;  
+        $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-success");
+    } return $respuesta;
 }
 
-function rojooff() {   
+function rojooff() {
     $respuesta = new xajaxResponse();
     $mode24 = shell_exec("gpio mode 24 out");
-   
-    if (isset($mode24)) {        
+    if (isset($mode24)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 24.");
         $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $off = shell_exec("gpio write 24 0");
         $respuesta->assign("btnrojoon", "className", "btn btn-lg btn-primary");
         $respuesta->assign("btnrojooff", "className", "btn btn-lg btn-primary");
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
-function amarilloon() {   
+function amarilloon() {
     $respuesta = new xajaxResponse();
     $mode25 = shell_exec("gpio mode 25 out");
-   
-    if (isset($mode25)) {        
+    if (isset($mode25)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 25.");
         $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $on = shell_exec("gpio write 25 1");
         $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-success");
-        $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-success");        
-    }
-    return $respuesta;  
+        $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-success");
+    } return $respuesta;
 }
 
-function amarillooff() {   
+function amarillooff() {
     $respuesta = new xajaxResponse();
     $mode25 = shell_exec("gpio mode 25 out");
-   
-    if (isset($mode25)) {        
+    if (isset($mode25)) {
         $respuesta->alert("No se ha podido iniciar el puerto GPIO 25.");
         $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-danger");
         $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-danger");
-    } 
-    
-    else { 
+    } else {
         $off = shell_exec("gpio write 25 0");
         $respuesta->assign("btnamarilloon", "className", "btn btn-lg btn-primary");
         $respuesta->assign("btnamarillooff", "className", "btn btn-lg btn-primary");
-    }
-    return $respuesta;  
+    } return $respuesta;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

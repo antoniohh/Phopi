@@ -42,8 +42,8 @@
                 </p>
                 <p class="lead">Mediante la aplicación controlamos cuatro diodos led conectados a los puertos GPIO 22, 23, 24, 25 de la Opi.
                 </p>
-            </div>
-
+            </div>        
+           
             <div class="row marketing">
                 <div class="col-lg-6">
                     <h3 style="padding-top: 20px">Led Azul</h3>
