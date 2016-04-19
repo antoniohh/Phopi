@@ -46,26 +46,35 @@ Framework Bootstrap:
 #### Instalamos los paquetes necesarios
 
 > apt-get install git
+
 > apt-get install make
+
 > apt-get install gcc
 
 #### Clonamos el repositorio, accedemos a el, aplicamos permisos de ejecución y compilamos.
 
 > git clone https://github.com/zhaolei/WiringOP.git -b h3
+
 > cd WiringOP
+
 > chmod +x ./build
+
 > sudo ./build
 
 #### Comandos para gestionar los Gpio
 
 > gpio mode 22 out // Establecemos el modo.
+
 > gpio write 22 1 // Activamos el Gpio 22.
+
 > gpio write 22 0 // Desactivamos el Gpio 22.
+
 > gpio read 22 // Leemos el estado del Gpio 22.
 
 #### Damos permisos al usuario de Apache, permisos de "root".
 
 > nano /etc/sudoers
+
 > www-data ALL=(ALL) NOPASSWD: ALL // Escribimos esta línea al final del archivo.
 
 #### Configuramos la Red.
@@ -147,7 +156,7 @@ Aplicación Web corriendo en el dispositivo Orange Pi PC:
 
 ### Video.
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=KIevMkiSBx4" target="_blank"><img src="http://img.youtube.com/vi/KIevMkiSBx4/0.jpg" alt="App Web para el control de puertos Gpio, Phopi (Php Orange Pi)." width="240" height="180" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=KIevMkiSBx4" target="_blank"><img src="http://img.youtube.com/vi/KIevMkiSBx4/0.jpg" alt="App Web para el control de puertos Gpio, Phopi (Php Orange Pi)." width="1024" border="10" /></a>
 
 [App Web para el control de puertos Gpio, Phopi (Php Orange Pi).] (https://youtu.be/KIevMkiSBx4)
 
