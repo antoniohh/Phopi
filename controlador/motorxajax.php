@@ -48,11 +48,47 @@ $xajax->register(XAJAX_FUNCTION, "controlazul");
 $xajax->register(XAJAX_FUNCTION, "controlverde");
 $xajax->register(XAJAX_FUNCTION, "controlrojo");
 $xajax->register(XAJAX_FUNCTION, "controlamarillo");
+$xajax->register(XAJAX_FUNCTION, "controlDht11");
+
 /**
  * El método processRequest procesa las peticiones que llegan a la página.
  * Debe ser llamado antes del código HTML
  */
 $xajax->processRequest();
+
+////////////////////////////////////////////////////////////////////////////////
+// Inicio Control del Sensor Dht11
+////////////////////////////////////////////////////////////////////////////////
+
+function controlDht11() {
+    $respuesta = new xajaxResponse();
+    $estado21 = shell_exec("sudo /opt/WiringOP/dht11");
+    if (!isset($estado21)) {
+        $respuesta->alert($estado21);
+        $respuesta->assign("panhum", "className", "panel panel-danger");
+        $respuesta->assign("pantem", "className", "panel panel-danger");
+        $respuesta->assign("btnsensor", "className", "btn btn-lg btn-danger");
+    } else {
+        if ($estado21 == 1701) {
+            $respuesta->assign("panhum", "className", "panel panel-primary");
+            $respuesta->assign("pantem", "className", "panel panel-primary");
+            $respuesta->assign("humedad", "innerHTML", "Sin datos.");
+            $respuesta->assign("temperatura", "innerHTML", "Sin datos.");
+            $respuesta->assign("btnsensor", "className", "btn btn-lg btn-primary");
+        } else {
+            $datos = explode("-",$estado21);
+            $respuesta->assign("humedad", "innerHTML", $datos[0]."%");
+            $respuesta->assign("temperatura", "innerHTML", $datos[1]."ºC");
+            $respuesta->assign("panhum", "className", "panel panel-success");
+            $respuesta->assign("pantem", "className", "panel panel-success");
+            $respuesta->assign("btnsensor", "className", "btn btn-lg btn-success");           
+        }
+    } return $respuesta;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Fin Control del Sensor Dht11
+////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
 // Inicio Control de Estado

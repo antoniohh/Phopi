@@ -21,7 +21,7 @@
     <body>
         <div class="container">
             <div class="header clearfix">
-                <nav>                    
+                <nav>
                     <ul class="nav nav-pills pull-right">
                         <li role="presentation" class="active"><a href="#inicio">Inicio</a></li>
                         <li role="presentation"><a href="#">About</a></li>
@@ -33,64 +33,76 @@
                 </a>
                 <h3 class="text-muted">Phopi</h3>
             </div>
-
+            <div class="row">
             <div class="jumbotron">
-                <h1>Phopi</h1>
-                <p class="lead">Phopi (PHP Orange Pi) es una aplicación escrita en PHP, apoyandose en Xajax 0.5, Bootstrap 3.3.6 y JQuery 2.2.3, 
-                    corriendo sobre un dispositivo Orange Pi PC, donde tenemos desplegado un servidor LAMP (Ubuntu Mate 15.04.1, 
-                    Apache 2.4.10, MySQL 5.6.28 y PHP 5.6.4).
-                </p>
-                <p class="lead">Mediante la aplicación controlamos cuatro diodos led conectados a los puertos GPIO 22, 23, 24, 25 de la Opi.
-                </p>
-            </div>        
-           
+                <h1>Phopi (PHP OPi)</h1>
+                <p class="lead">Powered by Xajax 0.5, Bootstrap 3.3.6 y JQuery 2.2.3.</p>
+                <p class="lead">Running on LAMP Orange Pi PC Server (Ubuntu Mate 15.04.1, Apache 2.4.10, MySQL 5.6.28 y PHP 5.6.4).</p>
+            </div>
+            <div class="row marketing">
+                <div class="col-lg-6">                   
+                    <div class="panel panel-primary" id="panhum">
+                        <div class="panel-heading">Sensor Dht11 Humedad</div>
+                        <h3><div class="panel-body" id="humedad"></div></h3>
+                    </div>
+                </div>
+                <div class="col-lg-6">                   
+                    <div class="panel panel-primary" id="pantem">
+                      <div class="panel-heading">Sensor Dht11 Temperatura</div>
+                      <h3><div class="panel-body" id="temperatura"></div></h3>
+                    </div>
+                </div>            
+                <div class="btn-group" role="group" aria-label="">
+                    <a id="btnsensor" onclick="xajax_controlDht11()" class="btn btn-lg btn-primary">Datos del Sensor Dht11</a>
+                </div>
+            </div>
             <div class="row marketing">
                 <div class="col-lg-6">
                     <h3 style="padding-top: 20px">Led Azul</h3>
-                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>azul</strong> conectado al puerto 
-                        <strong>GPIO 22</strong> del dispositivo Orange Pi.</p>                    
-                    <div class="btn-group" role="group" aria-label="">                        
+                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>azul</strong> conectado al puerto
+                        <strong>GPIO 22</strong> del dispositivo Orange Pi.</p>
+                    <div class="btn-group" role="group" aria-label="">
                         <a id="btnazulon" onclick="xajax_azulon()" class="btn btn-lg btn-primary">Encender
-                        </a>                                                 
+                        </a>
                         <a id="btnazuloff" onclick="xajax_azuloff()" class="btn btn-lg btn-primary">Apagar
-                        </a>                        
+                        </a>
                     </div>
                     <h3 style="padding-top: 20px">Led Rojo</h3>
-                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>rojo</strong> conectado al puerto 
+                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>rojo</strong> conectado al puerto
                         <strong>GPIO 24</strong> del dispositivo Orange Pi.</p>
                     <div class="btn-group" role="group" aria-label="">
                         <a id="btnrojoon" onclick="xajax_rojoon()" class="btn btn-lg btn-primary">Encender
-                        </a>                                                 
+                        </a>
                         <a id="btnrojooff" onclick="xajax_rojooff()" class="btn btn-lg btn-primary">Apagar
-                        </a> 
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <h3 style="padding-top: 20px">Led Verde</h3>
-                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>verde</strong> conectado al puerto 
+                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>verde</strong> conectado al puerto
                         <strong>GPIO 23</strong> del dispositivo Orange Pi.</p>
                     <div class="btn-group" role="group" aria-label="">
                         <a id="btnverdeon" onclick="xajax_verdeon()" class="btn btn-lg btn-primary">Encender
-                        </a>                                                 
+                        </a>
                         <a id="btnverdeoff" onclick="xajax_verdeoff()" class="btn btn-lg btn-primary">Apagar
-                        </a> 
-                    </div>                    
+                        </a>
+                    </div>
                     <h3 style="padding-top: 20px">Led Amarillo</h3>
-                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>amarillo</strong> conectado al puerto 
+                    <p>Pulsando los botones On y Off, encendemos y apagamos el led <strong>amarillo</strong> conectado al puerto
                         <strong>GPIO 25</strong> del dispositivo Orange Pi.</p>
                     <div class="btn-group" role="group" aria-label="">
                         <a id="btnamarilloon" onclick="xajax_amarilloon()" class="btn btn-lg btn-primary">Encender
-                        </a>                                                 
+                        </a>
                         <a id="btnamarillooff" onclick="xajax_amarillooff()" class="btn btn-lg btn-primary">Apagar
-                        </a> 
+                        </a>
                     </div>
                 </div>
             </div>
-            
+
             <footer class="footer">
                 <p>&copy; 2016 Antonio Horrillo Horrillo.</p>
             </footer>
         </div> <!-- /container -->
     </body>
-</html> 
+</html>

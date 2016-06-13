@@ -29,4 +29,5 @@ $( document ).ready(function() {
     xajax.request({xjxfun:"controlverde"}, {mode:'synchronous'});
     xajax.request({xjxfun:"controlrojo"}, {mode:'synchronous'});
     xajax.request({xjxfun:"controlamarillo"}, {mode:'synchronous'});
+    xajax.request({xjxfun:"controlDht11"}, {mode:'synchronous'});
 });

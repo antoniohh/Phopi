@@ -48,6 +48,7 @@ $xajax->register(XAJAX_FUNCTION,"controlazul");
 $xajax->register(XAJAX_FUNCTION,"controlverde");
 $xajax->register(XAJAX_FUNCTION,"controlrojo");
 $xajax->register(XAJAX_FUNCTION,"controlamarillo");
+$xajax->register(XAJAX_FUNCTION,"controlDht11");
 
 /**
  * Indicamos la ruta del componenete Javascript de Xajax.
